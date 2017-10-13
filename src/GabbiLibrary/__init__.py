@@ -30,7 +30,8 @@ class GabbiLibrary(object):
                                content_handlers=[
                                    handlers.StoreResponseValueHandler],
                                url=url_override if url_override else self.url,
-                               test_loader_name='dummy')
+                               test_loader_name='dummy',
+                               use_prior_test=False)
 
         # save each testcase name and object in dictionary
         for testsuite in top_testsuite:
@@ -56,9 +57,6 @@ class GabbiLibrary(object):
         if name in self.testcases and self.testcases[name]:
             # create suite that contains single testcase
             suite = unittest.TestSuite()
-
-            # disable any prior test so that we only run this single testcase
-            self.testcases[name].prior = None
             suite.addTest(self.testcases[name])
 
             # set keyword arguments as environment variables

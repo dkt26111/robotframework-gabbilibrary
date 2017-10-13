@@ -8,7 +8,7 @@ except ImportError:
 
 from os.path import join, dirname
 execfile(join(dirname(__file__), 'src', 'GabbiLibrary', 'version.py'))
-long_description = open(join(dirname(__file__), 'README.md',)).read()
+long_description = open(join(dirname(__file__), 'README.rst',)).read()
 
 CLASSIFIERS = """
 Programming Language :: Python
@@ -26,7 +26,7 @@ setup(
     license='Apache License 2.0',
     packages=['GabbiLibrary'],
     package_dir={'': 'src'},
-    install_requires=['robotframework', 'gabbi'],
+    install_requires=['robotframework', 'gabbi>=1.36.0'],
     zip_safe=False,
     keywords='robotframework gabbi http testing',
     classifiers=CLASSIFIERS.splitlines()
